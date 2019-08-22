@@ -11,7 +11,8 @@ import ChatContainer from "./chats/ChatContainer";
 
 //We take the URL the socket will be listening to.
 const PORT = process.env.PORT || 3231;
-const socketUrl = `http://localhost:${PORT}`;
+// const socketUrl = `http://localhost:${PORT}`;
+const socketUrl = "/";
 
 export default class Layout extends Component {
   constructor(props) {
