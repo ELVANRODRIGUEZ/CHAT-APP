@@ -26,13 +26,13 @@ This constitutes the Front End React Component manager for the app.
 
 3. __chats(folder)__
 
-  -*ChatContainer.js:* Manages messages emission/reception. Like the "messages controller". It listens to message send and recieving through the passed socket.  
-  -*ChatHeading.js:* Just a top ribbon to show the connected users count.  
-  -*SideBar.js:* A left positioned container that shows the availbale chats and the connected user. It will hopefuly have the logic to create new chatrooms.
+   -*ChatContainer.js:* Manages messages emission/reception. Like the "messages controller". It listens to message send and recieving through the passed socket.  
+   -*ChatHeading.js:* Just a top ribbon to show the connected users count.  
+   -*SideBar.js:* A left positioned container that shows the availbale chats and the connected user. It will hopefuly have the logic to create new chatrooms.
 
 4. __messages(folder)__
 
-     -*MessageInput.js:* If *ChatContainer.js* if the "messages controller", this component is the "messages generator" and the "is typing" message generator.
+     -*MessageInput.js:* If *ChatContainer.js* if the "messages controller", this component is the "messages generator" and the "is typing" message generator.  
      -*Messages.js:* This is just the "messages positioner" that shows each message in its correspondant place and scrolls down to reveal new ones.
 
 ### server
