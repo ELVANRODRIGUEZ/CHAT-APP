@@ -1,10 +1,9 @@
 ## SIMPLE CHAT-APP
----
 
 * This is a follow up excercise to create a chat app from the series: https://www.youtube.com/playlist?list=PLfUtdEcvGHFHdOYFXj4cY6ZIFkSp6MOuY. Special thanks to [Leon Watson](https://www.youtube.com/channel/UCYjktLnPZi4LHSz1QXwc4dA) for putting up that tutoral.
 * The project, how it is now, covers chapters 1 and 2, and adds a Chat logged users counter in the "ChatHeading". Everythin else is exactly the same as the original project at the end of the above mentioned second chapter.
 
-SRC (PROJECT JAVASCRIPT AND REACT LOGIC) IS STRUCTURED AS FOLLOWS:
+__SRC (PROJECT JAVASCRIPT AND REACT LOGIC) IS STRUCTURED AS FOLLOWS:__
 
 1. __Events.js:__ Just a module that exports event names so there is just once source of them.
 
