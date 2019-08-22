@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SIMPLE CHAT-APP
+---
 
-## Available Scripts
+* This is a follow up excercise to create a chat app from the series: https://www.youtube.com/playlist?list=PLfUtdEcvGHFHdOYFXj4cY6ZIFkSp6MOuY
+* The project, how it is now, covers chapters 1 and 2, and adds a Chat logged users counter in the "ChatHeading". Everythin else is exactly the same as the project at the end of the above mentioned secon chapter.
 
-In the project directory, you can run:
+SRC (PROJECT JAVASCRIPT AND REACT LOGIC) IS STRUCTURED AS FOLLOWS:
 
-### `npm start`
+1. __Events.js:__ Just a module that exports event names so there is just once source of them.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. __Factories.js:__ A file that exports the logic to create users, messages and tasks, all of them identified with the npm UUIdv4 package.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+3. __App.js:__ A component general container.
 
-### `npm test`
+4. __index.js:__ The React-Dom integrator.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. __test.js:__ Just a test file to run in Node whenever needed.
 
-### `npm run build`
+### components
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This constitutes the Front End React Component manager for the app.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. __Layout.js:__ The node that will either direct the user to the chat or ask him/her to login. This components opens the io.socket for the Client to start lisening and emiting from it. Gets the users once they login and keep store them into JSON obects. No persistance present in this app. Also, it checks when a user logs out and reshape the corresponding JSON object.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. __LoginForm.js:__ A component to allow the user to input the name.
 
-### `npm run eject`
+3. __chats(folder)__
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+     -*ChatContainer.js:* Manages messages emission/reception. Like the "messages controller". It listens to message send and recieving through the passed socket.
+     -*ChatHeading.js:* Just a top ribbon to show the connected users count.
+     -*SideBar.js:* A left positioned container that shows the availbale chats and the connected user. It will hopefuly have the logic to create new chatrooms.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. __messages(folder)__
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+     -*MessageInput.js:* If *ChatContainer.js* if the "messages controller", this component is the "messages generator" and the "is typing" message generator.
+     -*Messages.js:* This is just the "messages positioner" that shows each message in its correspondant place and scrolls down to reveal new ones.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### server
 
-## Learn More
+1. __index.js:__ This gets the server and io.socket up and running.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. __SocketManager.js:__ As it name implies, it manages the socket endpoints to listen to client emissions and viceversa.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

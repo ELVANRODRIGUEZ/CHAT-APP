@@ -67,7 +67,7 @@ export default class SideBar extends Component {
                 >
                   <div className="user-photo">{user.name[0].toUpperCase()}</div>
                   <div className="user-info">
-                    <div className="name">{user.name}</div>
+                    <div className="name">{user.name} Chat</div>
                     {lastMessage && (
                       //Showing the "message" attribute of the above declared "letMessage" const.
                       <div className="last-message">{lastMessage.message}</div>
