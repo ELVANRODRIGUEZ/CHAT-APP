@@ -1,8 +1,8 @@
 ## SIMPLE CHAT-APP
 ---
 
-* This is a follow up excercise to create a chat app from the series: https://www.youtube.com/playlist?list=PLfUtdEcvGHFHdOYFXj4cY6ZIFkSp6MOuY
-* The project, how it is now, covers chapters 1 and 2, and adds a Chat logged users counter in the "ChatHeading". Everythin else is exactly the same as the project at the end of the above mentioned secon chapter.
+* This is a follow up excercise to create a chat app from the series: https://www.youtube.com/playlist?list=PLfUtdEcvGHFHdOYFXj4cY6ZIFkSp6MOuY. Special thanks to [Leon Watson](https://www.youtube.com/channel/UCYjktLnPZi4LHSz1QXwc4dA) for putting up that tutoral.
+* The project, how it is now, covers chapters 1 and 2, and adds a Chat logged users counter in the "ChatHeading". Everythin else is exactly the same as the original project at the end of the above mentioned second chapter.
 
 SRC (PROJECT JAVASCRIPT AND REACT LOGIC) IS STRUCTURED AS FOLLOWS:
 
@@ -26,9 +26,9 @@ This constitutes the Front End React Component manager for the app.
 
 3. __chats(folder)__
 
-     -*ChatContainer.js:* Manages messages emission/reception. Like the "messages controller". It listens to message send and recieving through the passed socket.
-     -*ChatHeading.js:* Just a top ribbon to show the connected users count.
-     -*SideBar.js:* A left positioned container that shows the availbale chats and the connected user. It will hopefuly have the logic to create new chatrooms.
+  -*ChatContainer.js:* Manages messages emission/reception. Like the "messages controller". It listens to message send and recieving through the passed socket.  
+  -*ChatHeading.js:* Just a top ribbon to show the connected users count.  
+  -*SideBar.js:* A left positioned container that shows the availbale chats and the connected user. It will hopefuly have the logic to create new chatrooms.
 
 4. __messages(folder)__
 
