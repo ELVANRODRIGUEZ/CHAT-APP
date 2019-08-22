@@ -32,7 +32,7 @@ module.exports = function(socket) {
     if (isUser(connectedUsers, nickname)) {
       /*
             If the name passed on does belong to the "connctedUsers" array, the passed function is executed with an Object argument which sets the argument "user" to "null" and "isUser" to "true".
-            Of course, the the function passed on to be executed needs to be able to accept and proccess such argument.
+            Of course, the function passed on to be executed needs to be able to accept and proccess such argument.
             */
       callback({ isUser: true, user: null });
     } else {

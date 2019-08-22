@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
@@ -11,7 +12,8 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "concurrently \"npm run react\" \"npm run server\"",
+    "start": "node src/server/index.js",
+    "dev": "concurrently \"npm run react\" \"npm run server\"",
     "react": "react-scripts start",
     "server": "nodemon src/server/index.js",
     "build": "react-scripts build",

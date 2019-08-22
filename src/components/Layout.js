@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-import { USER_CONNECTED, USER_DISCONNECTED, LOGOUT } from "../Events";
+import {
+  USER_CONNECTED,
+  USER_DISCONNECTED,
+  LOGOUT,
+  VERIFY_USER
+} from "../Events";
 import LoginForm from "./LoginForm";
 import ChatContainer from "./chats/ChatContainer";
 
@@ -34,11 +39,37 @@ export default class Layout extends Component {
     const socket = io(socketUrl);
     //Then we trigger a connect event after which we set "this.state.socket" equals to the by then listening socket.
     socket.on("connect", () => {
-      //Production console.
-      console.log("Socket connected");
+      /*
+      In order to keep the user logged in, specially in mobile devices where one can switch the screen of and then switch it back on, then loosing the connection, we need to implement a reconnect automatic method. This will garantee that the mobile can get back onto the ChatContainer component after having switched off his/her screen and type again right away.
+      So we make sure the user is not "null", if it is not, we call "reconnect" function.
+      */
+      if (this.state.user) {
+        this.reconnect(socket);
+      } else {
+        //Production console.
+        console.log("Socket connected");
+      }
     });
     //This is a syntax to avoid this redundancy: "this.setState({socket:socket})"
     this.setState({ socket });
+  };
+
+  //A function to verify if the user was connected. It will recieve the "socket" as argument to emit that verification with the server.
+  reconnect = socket => {
+    socket.emit(VERIFY_USER, this.state.user.name, ({ isUser, user }) => {
+      /*
+      Since the function defined for the "VERIFY_USER" endpont in the server, calls this callback function with the arguments "{ isUser: true/false, user: null/createUser({ name: nickname }) }" (
+      >(Endpoint found in: "../server/SocketManager.js")  
+      we can use them to evaluate if the user is a logged user. 
+      */
+      if (isUser) {
+        //If it is, we set "this.state.user" to "null", since we don't need to set it again.
+        this.setState({ user: null });
+      } else {
+        //If it is not, we set the user again.
+        this.setUser(user);
+      }
+    });
   };
 
   //A function to send a user to the "USER_CONNECTED" endpoint.
@@ -71,7 +102,7 @@ export default class Layout extends Component {
 
     //"USER_DISCONNECTED" endpoint.
     socket.on(USER_DISCONNECTED, connectedUsers => {
-      //Assigning "this.state.connectedUsers" the "connectedUsers" object we get as response. 
+      //Assigning "this.state.connectedUsers" the "connectedUsers" object we get as response.
       this.setState({ connectedUsers }, () => {
         //Test console.
         // console.log(this.state.connectedUsers);
