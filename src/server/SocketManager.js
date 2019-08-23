@@ -69,7 +69,6 @@ module.exports = function(socket) {
       connectedUsers = removeUser(connectedUsers, socket.user.name);
       //This emit broadcasts "USER_DISCONECTED" event to all the sockets connected to this "io" session, meaning, all users connected to the "chatApp".
       io.emit(USER_DISCONNECTED, connectedUsers);
-      io.emit(USER_DISCONNECTED, connectedUsers);
       //Test console.
       //   console.log("Someone disconnected. Now available: ", connectedUsers);
     }
